@@ -101,3 +101,28 @@ def sum_p_v(g,val_etats,i,j,p,action):
 
 # val_etats =  np.random.rand(10,15)
 # sum_p_v(g,val_etats,0,0,0.25,1
+
+#renvoi reward apres l'action
+# None si action hors limite
+def reward_action(g,i,j,action,rewards):
+    if action == 0:
+        try :
+            return rewards[g[i][j+1]]
+        except:
+            return None
+    if action == 1:
+        try :
+            return  rewards[g[i][j-1]]
+        except:
+            return None
+    if action == 2:
+        try :
+            return  rewards[g[i+1][j]]
+        except:
+            return None
+    if action == 3:
+        try :
+            return  rewards[g[i-1][j]]
+        except:
+            return None
+        
